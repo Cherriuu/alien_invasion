@@ -10,7 +10,7 @@ def run_game():
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height)) # sets the screen size, this is called a surface
     pygame.display.set_caption("Alien Invasion")
 
-    ship = Ship(screen)
+    ship = Ship(screen, ai_settings)
 
     bg_color = (0,0,255) # pygame background colors range from 0 to 255 and uses red, green, and blue mixes
 
@@ -18,7 +18,7 @@ def run_game():
         # this is called an event loop that will perform a task based off the kind of event that has occured
 
         gf.check_event(ship)
-        
+
         ship.update()
 
         gf.update_screen(ai_settings, screen, ship)
