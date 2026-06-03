@@ -11,5 +11,11 @@ class Ship():
         self.rect.centerx = self.screen_rect.centerx # put the center of my ship at the center of the screen
         self.rect.bottom = self.screen_rect.bottom # put the bottom of my ship at the bottom of the screen
 
+        self.moving_right = False # a flag to detect if the user is continuosuly pressing down on the right button
+
     def blitme(self):
         self.screen.blit(self.image, self.rect) # draws the image on the screen with the specified rect value
+
+    def update(self):
+        if self.moving_right():
+            self.rect.centerx += 1

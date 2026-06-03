@@ -17,8 +17,9 @@ def run_game():
     while True: # surface is redrawn through every iteration of this
         # this is called an event loop that will perform a task based off the kind of event that has occured
 
-        # the event loop detects any keyboard or mouse movements and runs if it detects them
-        gf.check_event()
+        gf.check_event(ship)
+        
+        ship.update()
 
         gf.update_screen(ai_settings, screen, ship)
 
