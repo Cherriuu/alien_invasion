@@ -5,6 +5,8 @@ from pygame.sprite import Group
 from settings import Settings
 from cat import Cat
 
+from mouse import Mouse
+
 def run_game():
     pygame.init() # creates the blank slate and initiates needed settings
     ai_settings = Settings()
@@ -13,6 +15,9 @@ def run_game():
 
     cat = Cat(screen, ai_settings)
     bullets = Group()
+    mouses = Group()
+
+    gf.create_fleet(ai_settings, screen, mouses)
 
     while True: # surface is redrawn through every iteration of this
         # this is called an event loop that will perform a task based off the kind of event that has occured
@@ -21,9 +26,9 @@ def run_game():
 
         cat.update()
 
-        bullets.update()
+        gf.update_bullets(bullets)
 
-        gf.update_screen(ai_settings, screen, cat, bullets)
+        gf.update_screen(ai_settings, screen, cat, mouses, bullets)
 
 
 run_game()
